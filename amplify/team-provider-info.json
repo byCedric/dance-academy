@@ -1,0 +1,19 @@
+{
+    "default": {
+        "awscloudformation": {
+            "AuthRoleName": "dance-academy-default-20190815200606-authRole",
+            "UnauthRoleArn": "arn:aws:iam::894854620538:role/dance-academy-default-20190815200606-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::894854620538:role/dance-academy-default-20190815200606-authRole",
+            "Region": "eu-west-2",
+            "DeploymentBucketName": "dance-academy-default-20190815200606-deployment",
+            "UnauthRoleName": "dance-academy-default-20190815200606-unauthRole",
+            "StackName": "dance-academy-default-20190815200606",
+            "StackId": "arn:aws:cloudformation:eu-west-2:894854620538:stack/dance-academy-default-20190815200606/5a750760-bf87-11e9-b1cb-02eeda323ec6"
+        },
+        "categories": {
+            "auth": {
+                "danceacademyc0fc46c6": {}
+            }
+        }
+    }
+}

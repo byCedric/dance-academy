@@ -1,0 +1,9 @@
+{
+	"auth": {
+		"danceacademyc0fc46c6": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	}
+}

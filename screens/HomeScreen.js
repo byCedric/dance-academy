@@ -1,5 +1,6 @@
 import * as WebBrowser from 'expo-web-browser';
 import React from 'react';
+import { Input, Button } from 'react-native-elements';
 import {
   Image,
   Platform,
@@ -10,11 +11,33 @@ import {
   View,
 } from 'react-native';
 
-import { MonoText } from '../components/StyledText';
+
+
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
+      <Input
+          label="Email"
+          leftIcon={{ type: 'font-awesome', name: 'envelope' }}
+          onChangeText={
+            (value) => this.setState({ email: value })
+          }
+          placeholder="Maria@email.com"
+        />
+        <Input
+          label="Password"
+          leftIcon={{ type: 'font-awesome', name: 'lock' }}
+          onChangeText={
+            (value) => this.setState({ password: value })
+          }
+          placeholder="Contraseña"
+          secureTextEntry
+        />
+        <Button
+          title='Submit'
+          onPress={ this.handleSignUp }
+        />
     </View>
   );
 }

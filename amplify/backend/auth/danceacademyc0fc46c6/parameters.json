@@ -1,6 +1,6 @@
 {
     "identityPoolName": "danceacademyc0fc46c6_identitypool_c0fc46c6",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "danceac0fc46c6",
     "userPoolName": "danceacademyc0fc46c6_userpool_c0fc46c6",
     "autoVerifiedAttributes": [

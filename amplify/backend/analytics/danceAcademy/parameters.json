@@ -1,0 +1,20 @@
+{
+    "appName": "danceAcademy",
+    "roleName": "pinpointLambdaRole75359252",
+    "cloudWatchPolicyName": "cloudWatchPolicy75359252",
+    "pinpointPolicyName": "pinpointPolicy75359252",
+    "authPolicyName": "pinpoint_amplify_75359252",
+    "unauthPolicyName": "pinpoint_amplify_75359252",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    }
+}

@@ -5,5 +5,11 @@
 			"providerPlugin": "awscloudformation",
 			"dependsOn": []
 		}
+	},
+	"analytics": {
+		"danceAcademy": {
+			"service": "Pinpoint",
+			"providerPlugin": "awscloudformation"
+		}
 	}
 }

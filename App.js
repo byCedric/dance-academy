@@ -9,18 +9,10 @@ import awsconfig from './aws-exports';
 
 import AppNavigator from './navigation/AppNavigator';
 
-Amplify.configure({
-  Auth: {
-      region: 'eu-west-2',
-      userPoolId: 'eu-west-2_5kjBKgo2k',
-      userPoolWebClientId: '2m0f2gubgup663gttdm1q16qne',
-      mandatorySignIn: false
-  }
-});
+Amplify.configure(awsconfig);
 
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
-  Amplify.configure(awsconfig);
   if (!isLoadingComplete && !props.skipLoadingScreen) {
     return (
       <AppLoading

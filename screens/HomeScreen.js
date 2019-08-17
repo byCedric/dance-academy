@@ -10,34 +10,17 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-
+import { Auth } from 'aws-amplify';
 
 
 
 export default function HomeScreen() {
+
+  Auth.currentUserInfo().then(user => console.log(user))
+
   return (
     <View style={styles.container}>
-      <Input
-          label="Email"
-          leftIcon={{ type: 'font-awesome', name: 'envelope' }}
-          onChangeText={
-            (value) => this.setState({ email: value })
-          }
-          placeholder="Maria@email.com"
-        />
-        <Input
-          label="Password"
-          leftIcon={{ type: 'font-awesome', name: 'lock' }}
-          onChangeText={
-            (value) => this.setState({ password: value })
-          }
-          placeholder="Contraseña"
-          secureTextEntry
-        />
-        <Button
-          title='Submit'
-          onPress={ this.handleSignUp }
-        />
+      <Text></Text>
     </View>
   );
 }

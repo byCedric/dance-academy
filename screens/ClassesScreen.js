@@ -4,7 +4,7 @@ import { View, Text, Image, Platform, ScrollView, StyleSheet, TouchableOpacity }
 
 const ClassesScreen = (props) => {
     return (
-        <View>
+        <ScrollView>
             {
                 classes.map((u) => {
                     return (
@@ -14,7 +14,7 @@ const ClassesScreen = (props) => {
                     );
                 })
             }
-        </View>
+        </ScrollView>
         )
 }
 

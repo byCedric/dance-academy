@@ -1,14 +1,10 @@
-import { AppLoading } from 'expo';
-import { Asset } from 'expo-asset';
-import * as Font from 'expo-font';
 import React, { useState } from 'react';
-import { Platform, StatusBar, StyleSheet, View } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-import Amplify, { Hub,Auth } from 'aws-amplify';
+import Amplify, { Hub } from 'aws-amplify';
 import awsconfig from './aws-exports';import { ConfirmSignIn, ConfirmSignUp, ForgotPassword, RequireNewPassword, SignIn, SignUp, VerifyContact, withAuthenticator } from 'aws-amplify-react-native';
 
 import AppNavigator from './navigation/AppNavigator';
 import { I18n } from 'aws-amplify';
+import CustomSignIn from './components/CustomSignIn';
 
 
 Amplify.configure(awsconfig);
@@ -48,6 +44,6 @@ render() {
   }
 }
 export default withAuthenticator(App, false, [
-  <SignIn/>,
+  <CustomSignIn/>,
   <RequireNewPassword />
 ]);

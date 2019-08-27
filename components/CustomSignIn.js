@@ -1,8 +1,7 @@
-
 import React from 'react';
 import { View, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { I18n } from 'aws-amplify';
-import { AmplifyButton, FormField, ErrorRow } from '../AmplifyUI';
+import { AmplifyButton, FormField, ErrorRow } from 'aws-amplify-react-native';
 import { SignIn } from 'aws-amplify-react-native';
 
 export default class CustomSignIn extends SignIn {

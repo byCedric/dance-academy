@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import { Card, ListItem, Button, Icon } from 'react-native-elements'
-import { View, Text, Image, Platform, ScrollView, StyleSheet, TouchableOpacity } from 'react-native'
+import React from "react";
+import {Card } from "react-native-paper"
+import { ScrollView, StyleSheet} from 'react-native'
+import edwardirene  from '../assets/images/edward-irene.png'
 
 const ClassesScreen = (props) => {
     return (
@@ -8,8 +9,9 @@ const ClassesScreen = (props) => {
             {
                 classes.map((u) => {
                     return (
-                        <Card title="CARD WITH DIVIDER" key={u.id}>
-                            <Text>{u.name}</Text>
+                        <Card key={u.id}>
+                            <Card.Title title={u.name}/>
+                            <Card.Cover source={edwardirene}/>
                         </Card>
                     );
                 })
@@ -18,13 +20,19 @@ const ClassesScreen = (props) => {
         )
 }
 
+ClassesScreen.navigationOptions = {
+    title: 'Tus clases',
+};
+
+export default ClassesScreen
+
 
 
 
 const classes =
     [{
         id: "1",
-        name: "Bahata cero"
+        name: "Bahata lala"
     },
     {
         id: "2",
@@ -71,7 +79,6 @@ const classes =
     ]
 
 
-export default ClassesScreen
 
 const styles = StyleSheet.create({
     container: {

@@ -22,6 +22,9 @@ I18n.putVocabularies(dict);
 
 I18n.setLanguage('es');
 
+const MyTheme = {
+  button: { 'color': 'blue' },
+}
 
 class App extends React.Component {
   constructor(props) {
@@ -46,4 +49,4 @@ render() {
 export default withAuthenticator(App, false, [
   <CustomSignIn/>,
   <RequireNewPassword />
-]);
+], MyTheme);

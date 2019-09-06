@@ -1,0 +1,47 @@
+import React, {useEffect} from "react";
+import { ScrollView, StyleSheet} from 'react-native'
+import edwardirene  from '../assets/images/edward-irene.png'
+import * as queries from '../src/graphql/queries';
+import Amplify, {API, Auth, graphqlOperation} from 'aws-amplify';
+import {ListView, ImageBackground, Tile,Subtitle,Title,Divider } from "@shoutem/ui"
+import * as Font from "expo-font";
+import {AppLoading} from "expo";
+import AppNavigator from "../navigation/AppNavigator";
+import App from "../App";
+
+
+
+class BeforeAuthScreen extends React.Component {
+
+    async componentDidMount() {
+        await Font.loadAsync({
+            'Rubik-Black': require('./node_modules/@shoutem/ui/fonts/Rubik-Black.ttf'),
+            'Rubik-BlackItalic': require('./node_modules/@shoutem/ui/fonts/Rubik-BlackItalic.ttf'),
+            'Rubik-Bold': require('./node_modules/@shoutem/ui/fonts/Rubik-Bold.ttf'),
+            'Rubik-BoldItalic': require('./node_modules/@shoutem/ui/fonts/Rubik-BoldItalic.ttf'),
+            'Rubik-Italic': require('./node_modules/@shoutem/ui/fonts/Rubik-Italic.ttf'),
+            'Rubik-Light': require('./node_modules/@shoutem/ui/fonts/Rubik-Light.ttf'),
+            'Rubik-LightItalic': require('./node_modules/@shoutem/ui/fonts/Rubik-LightItalic.ttf'),
+            'Rubik-Medium': require('./node_modules/@shoutem/ui/fonts/Rubik-Medium.ttf'),
+            'Rubik-MediumItalic': require('./node_modules/@shoutem/ui/fonts/Rubik-MediumItalic.ttf'),
+            'Rubik-Regular': require('./node_modules/@shoutem/ui/fonts/Rubik-Regular.ttf'),
+            'rubicon-icon-font': require('./node_modules/@shoutem/ui/fonts/rubicon-icon-font.ttf'),
+        });
+
+        this.setState({ fontsAreLoaded: true });
+    }
+
+    render() {
+        if (!this.state.fontsAreLoaded) {
+            return <AppLoading />;
+        }
+        return (
+            <App/>
+        )
+    }
+
+
+
+}
+
+export default BeforeAuthScreen

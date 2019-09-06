@@ -1,0 +1,19 @@
+on: push
+name: Install and Publish
+jobs:
+  install:
+    name: Install
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Install
+      uses: actions/npm@master
+      with:
+        args: install
+    - name: Publish
+      uses: expo/expo-github-action@3.0.0
+      env:
+        EXPO_CLI_PASSWORD: ${{ secrets.EXPO_CLI_PASSWORD }}
+        EXPO_CLI_USERNAME: ${{ secrets.EXPO_CLI_USERNAME }}
+      with:
+        args: publish

@@ -18,15 +18,15 @@ ClassDetailScreen.navigationOptions = screenProps => ({
 
 export default function ClassDetailScreen(props) {
 
-    const {navigation} = props;
-    const danceClass = navigation.getParam('class');
+    const {navigate} = props.navigation;
+    const danceClass = props.navigation.getParam('class');
     return (
 
         <View>
             <Image styleName="large-banner" source={edwardirene}>
             </Image>
             <TouchableOpacity
-                onPress={NotImplementedYet()}
+                onPress={() => navigate('AttendanceConfirmation', danceClass.id)}
             >
                 <Row>
                     <Icon name="add-friend"/>

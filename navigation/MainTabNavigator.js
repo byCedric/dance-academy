@@ -7,6 +7,7 @@ import ClassesScreen from '../screens/ClassesScreen';
 import NotificationsScreen from '../screens/NotificationsScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import ClassDetailScreen from "../screens/ClassDetailScreen";
+import AttendanceConfirmationScreen from "../screens/AttendanceConfirmationScreen";
 
 const config = Platform.select({
     web: {headerMode: 'screen'},
@@ -22,7 +23,13 @@ const HomeStack = createStackNavigator(
         ClassDetail: {
             screen: ClassDetailScreen,
             navigationOptions: {
-                headerBackTitle: 'some label'
+                headerBackTitle: 'Atrás'
+            }
+        },
+        AttendanceConfirmation: {
+            screen : AttendanceConfirmationScreen,
+            navigationOptions: {
+                headerBackTitle: 'Atrás'
             }
         }
     },

@@ -1,9 +1,7 @@
 import React from 'react';
 import {ScrollView, StyleSheet} from 'react-native';
-import {ExpoLinksView} from '@expo/samples';
-import {Button, Image, Text, View} from "@shoutem/ui";
 
-export default function NotificationsScreen(props) {
+export default function NotificationsScreen() {
     return (
         <ScrollView style={styles.container}>
 

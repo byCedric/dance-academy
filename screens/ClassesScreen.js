@@ -6,52 +6,49 @@ import {API, graphqlOperation, Auth} from 'aws-amplify';
 import {ImageBackground, Title, Caption, View, Overlay, TouchableOpacity} from "@shoutem/ui"
 
 
-
-
 const getClasses = async () => {
-    await Auth.currentUserInfo()
-        .then(user => console.log(API.graphql(graphqlOperation(queries.getUsers, {id: user.attributes.sub}))))
-        .then(success => console.log(success));
+        await Auth.currentUserInfo()
+            .then(user => console.log(API.graphql(graphqlOperation(queries.getUsers, {id: user.attributes.sub}))))
+            .then(success => console.log(success));
 
 
-},
-ClassesScreen = (props) => {
-    const {navigate} = props.navigation;
-    getClasses().then(r => console.log("rendering " + JSON.stringify(r)));
-    return <ScrollView>
-        {
-            classes.map((danceClass) => {
-                return (
-
-                    <TouchableOpacity
-                        key={danceClass.id}
-                        onPress={() => navigate('ClassDetail',{"class" :danceClass})}
-                    >
-                        <ImageBackground
-                            styleName="large-banner"
-                            source={edwardirene}
+    },
+    ClassesScreen = (props) => {
+        const {navigate} = props.navigation;
+        getClasses().then(r => console.log("rendering " + JSON.stringify(r)));
+        return <ScrollView>
+            {
+                classes.map((danceClass) => {
+                    return (
+                        <TouchableOpacity
                             key={danceClass.id}
-                            imageStyle={{opacity: 0.6, backgroundColor: 'rgba(255,0,0,.6)'}}
-                            onclick
-
+                            onPress={() => navigate('ClassDetail', {"class": danceClass})}
                         >
-                            <Overlay styleName="fill-parent image-overlay">
-                                <Title styleName="md-gutter-bottom">{(danceClass.name || '').toUpperCase()}</Title>
-                                <View styleName="horizontal md-gutter-top" virtual>
-                                    <Caption
-                                        styleName="collapsible"
-                                        numberOfLines={1}>
-                                        {danceClass.instructors}
-                                    </Caption>
-                                </View>
-                            </Overlay>
-                        </ImageBackground>
-                    </TouchableOpacity>
-                );
-            })
-        }
-    </ScrollView>
-};
+                            <ImageBackground
+                                styleName="large-banner"
+                                source={edwardirene}
+                                key={danceClass.id}
+                                imageStyle={{opacity: 0.6, backgroundColor: 'rgba(255,0,0,.6)'}}
+                                onclick
+
+                            >
+                                <Overlay styleName="fill-parent image-overlay">
+                                    <Title styleName="md-gutter-bottom">{(danceClass.name || '').toUpperCase()}</Title>
+                                    <View styleName="horizontal md-gutter-top" virtual>
+                                        <Caption
+                                            styleName="collapsible"
+                                            numberOfLines={1}>
+                                            {danceClass.instructors}
+                                        </Caption>
+                                    </View>
+                                </Overlay>
+                            </ImageBackground>
+                        </TouchableOpacity>
+                    );
+                })
+            }
+        </ScrollView>
+    };
 ClassesScreen.navigationOptions = {
     header: null,
 };
@@ -89,11 +86,12 @@ const classes =
             id: "6",
             name: "Kizomba uno",
             instructors: "Joaquín y Bea"
-        }, {
-        id: "7",
-        name: "Bachata cero",
-        instructors: "Edward e Irene"
-    },
+        },
+        {
+            id: "7",
+            name: "Bachata cero",
+            instructors: "Edward e Irene"
+        },
         {
             id: "8",
             name: "Salsa cero",
@@ -103,11 +101,12 @@ const classes =
             id: "9",
             name: "Kizomba uno",
             instructors: "Edward e Irene"
-        }, {
-        id: "10",
-        name: "Bachata cero",
-        instructors: "Joaquín y Bea"
-    },
+        },
+        {
+            id: "10",
+            name: "Bachata cero",
+            instructors: "Joaquín y Bea"
+        },
         {
             id: "11",
             name: "Salsa cero",

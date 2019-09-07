@@ -3,7 +3,7 @@ import { ExpoConfigView } from '@expo/samples';
 import { Auth } from 'aws-amplify';
 import {Button, View } from 'react-native';
 
-export default function SettingsScreen(props) {
+export default function ProfileScreen(props) {
   /**
    * Go ahead and delete ExpoConfigView and replace it with your content;
    * we just wanted to give you a quick view of your config.
@@ -12,6 +12,6 @@ export default function SettingsScreen(props) {
 }
 
 
-SettingsScreen.navigationOptions = {
-  title: 'app.json',
+ProfileScreen.navigationOptions = {
+  title: 'Mi perfil',
 };

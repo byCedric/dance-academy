@@ -4,8 +4,8 @@ import {createStackNavigator, createBottomTabNavigator} from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
 import ClassesScreen from '../screens/ClassesScreen';
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import NotificationsScreen from '../screens/NotificationsScreen';
+import ProfileScreen from '../screens/ProfileScreen';
 import ClassDetailScreen from "../screens/ClassDetailScreen";
 
 const config = Platform.select({
@@ -42,7 +42,7 @@ HomeStack.path = '';
 
 const LinksStack = createStackNavigator(
     {
-        Links: LinksScreen,
+        Links: NotificationsScreen,
     },
     config
 );
@@ -58,7 +58,7 @@ LinksStack.path = '';
 
 const SettingsStack = createStackNavigator(
     {
-        Settings: SettingsScreen,
+        Settings: ProfileScreen,
     },
     config
 );

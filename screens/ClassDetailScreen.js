@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 import edwardirene from '../assets/images/edward-irene.png'
 import {
     View,
@@ -10,6 +9,7 @@ import {
     Text,
     TouchableOpacity
 } from "@shoutem/ui"
+import {NotImplementedYet} from "../components/NotImplementedYet";
 
 
 ClassDetailScreen.navigationOptions = screenProps => ({
@@ -26,6 +26,7 @@ export default function ClassDetailScreen(props) {
             <Image styleName="large-banner" source={edwardirene}>
             </Image>
             <TouchableOpacity
+                onPress={NotImplementedYet()}
             >
                 <Row>
                     <Icon name="add-friend"/>
@@ -38,7 +39,9 @@ export default function ClassDetailScreen(props) {
                 </Row>
             </TouchableOpacity>
 
-            <TouchableOpacity>
+            <TouchableOpacity
+                onPress={NotImplementedYet()}
+            >
                 <Row>
                     <Icon name="music-video"/>
 
@@ -50,7 +53,9 @@ export default function ClassDetailScreen(props) {
                     <Icon styleName="disclosure" name="right-arrow"/>
                 </Row>
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity
+                onPress={NotImplementedYet()}
+            >
                 <Row>
                     <Icon name="podcasts"/>
                     <View styleName="vertical">
@@ -61,7 +66,9 @@ export default function ClassDetailScreen(props) {
                     <Icon styleName="disclosure" name="right-arrow"/>
                 </Row>
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity
+                onPress={NotImplementedYet()}
+            >
                 <Row>
                     <Icon name="users"/>
                     <View styleName="vertical">

@@ -1,0 +1,111 @@
+﻿schema {
+  query: Query
+  mutation: Mutation
+  subscription: Subscription
+}
+
+type Mutation {
+  createUsers(input: CreateUsersInput!): Users
+  deleteUsers(input: DeleteUsersInput!): Users
+  updateUsers(input: UpdateUsersInput!): Users
+}
+
+type Payment {
+  class_id: String!
+  from: String
+  name: String
+  to: String
+}
+
+type Query {
+  getUsers(id: String!): Users
+  listUsers(filter: TableUsersFilterInput, limit: Int, nextToken: String): UsersConnection
+}
+
+type Subscription {
+  onCreateUsers(id: String): Users @aws_subscribe(mutations : ["createUsers"])
+  onDeleteUsers(id: String): Users @aws_subscribe(mutations : ["deleteUsers"])
+  onUpdateUsers(id: String): Users @aws_subscribe(mutations : ["updateUsers"])
+}
+
+type Users {
+  id: String!
+  name: String
+  payments: [Payment]
+}
+
+type UsersConnection {
+  items: [Users]
+  nextToken: String
+}
+
+input CreateUsersInput {
+  id: String!
+}
+
+input DeleteUsersInput {
+  id: String!
+}
+
+input TableBooleanFilterInput {
+  eq: Boolean
+  ne: Boolean
+}
+
+input TableFloatFilterInput {
+  between: [Float]
+  contains: Float
+  eq: Float
+  ge: Float
+  gt: Float
+  le: Float
+  lt: Float
+  ne: Float
+  notContains: Float
+}
+
+input TableIDFilterInput {
+  beginsWith: ID
+  between: [ID]
+  contains: ID
+  eq: ID
+  ge: ID
+  gt: ID
+  le: ID
+  lt: ID
+  ne: ID
+  notContains: ID
+}
+
+input TableIntFilterInput {
+  between: [Int]
+  contains: Int
+  eq: Int
+  ge: Int
+  gt: Int
+  le: Int
+  lt: Int
+  ne: Int
+  notContains: Int
+}
+
+input TableStringFilterInput {
+  beginsWith: String
+  between: [String]
+  contains: String
+  eq: String
+  ge: String
+  gt: String
+  le: String
+  lt: String
+  ne: String
+  notContains: String
+}
+
+input TableUsersFilterInput {
+  id: TableStringFilterInput
+}
+
+input UpdateUsersInput {
+  id: String!
+}

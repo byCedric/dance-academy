@@ -19,7 +19,12 @@ const config = Platform.select({
 const HomeStack = createStackNavigator(
     {
         Classes: ClassesScreen,
-        ClassDetail: {screen: ClassDetailScreen}
+        ClassDetail: {
+            screen: ClassDetailScreen,
+            navigationOptions: {
+                headerBackTitle: 'some label'
+            }
+        }
     },
     config
 );
@@ -50,7 +55,8 @@ const LinksStack = createStackNavigator(
 LinksStack.navigationOptions = {
     tabBarLabel: 'Notificaciones',
     tabBarIcon: ({focused}) => (
-        <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-information-circle' : 'md-information-circle'}/>
+        <TabBarIcon focused={focused}
+                    name={Platform.OS === 'ios' ? 'ios-information-circle' : 'md-information-circle'}/>
     ),
 };
 

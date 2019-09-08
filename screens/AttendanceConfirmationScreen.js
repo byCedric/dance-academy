@@ -10,7 +10,7 @@ import {DataTable, Badge} from 'react-native-paper';
 
 
 export default function AttendanceConfirmationScreen(props) {
-    let {navigate} = props.navigation;
+    let { navigate } = props.navigation;
 
     return (
         <ScrollView>

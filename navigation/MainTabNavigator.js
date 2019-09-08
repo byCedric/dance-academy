@@ -23,7 +23,11 @@ const HomeStack = createStackNavigator(
         ClassDetail: {
             screen: ClassDetailScreen,
             navigationOptions: {
-                headerBackTitle: 'Atrás'
+                headerBackTitle: 'Atrás',
+                headerTitleStyle: {
+                    fontFamily: "Rubik-Regular",
+                    marginLeft: -10
+                },
             }
         },
         AttendanceConfirmation: {

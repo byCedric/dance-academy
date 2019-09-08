@@ -1,6 +1,5 @@
 import React from 'react';
-
-import edwardirene from '../assets/images/edward-irene.png'
+import {StyleSheet} from "react-native";
 import {
     View,
     Row,
@@ -9,6 +8,8 @@ import {
     Text,
     TouchableOpacity
 } from "@shoutem/ui"
+
+import edwardirene from '../assets/images/edward-irene.png'
 import {NotImplementedYet} from "../components/NotImplementedYet";
 
 
@@ -23,15 +24,14 @@ export default function ClassDetailScreen(props) {
     return (
 
         <View>
-            <Image styleName="large-banner" source={edwardirene}>
-            </Image>
+            <Image styleName="large-banner" source={edwardirene} />
             <TouchableOpacity
                 onPress={() => navigate('AttendanceConfirmation', danceClass.id)}
             >
                 <Row>
-                    <Icon name="add-friend"/>
+                    <Icon name="add-friend" />
                     <View styleName="vertical">
-                        <Text>
+                        <Text style={styles.text}>
                             Confirmar asistencia
                         </Text>
                     </View>
@@ -46,7 +46,7 @@ export default function ClassDetailScreen(props) {
                     <Icon name="music-video"/>
 
                     <View styleName="vertical">
-                        <Text>
+                        <Text style={styles.text}>
                             Vídeos
                         </Text>
                     </View>
@@ -59,7 +59,7 @@ export default function ClassDetailScreen(props) {
                 <Row>
                     <Icon name="podcasts"/>
                     <View styleName="vertical">
-                        <Text>
+                        <Text style={styles.text}>
                             Playlists
                         </Text>
                     </View>
@@ -72,7 +72,7 @@ export default function ClassDetailScreen(props) {
                 <Row>
                     <Icon name="users"/>
                     <View styleName="vertical">
-                        <Text>
+                        <Text style={styles.text}>
                             Personas inscritas
                         </Text>
                     </View>
@@ -84,4 +84,10 @@ export default function ClassDetailScreen(props) {
 
     )
 }
+
+const styles = StyleSheet.create({
+    text: {
+        fontSize: 20,
+    },
+});
 

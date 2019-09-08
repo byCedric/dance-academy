@@ -27,7 +27,7 @@ const dict = {
     'es': {
         'Sign In': "Iniciar sesión",
         'Sign Up': "Regístrate",
-        'Enter your username': "Introduce tu usuaio",
+        'Enter your username': "Introduce tu usuario",
         'Invalid email adress format.': "Formato de correo inválido."
     }
 };

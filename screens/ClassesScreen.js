@@ -3,7 +3,7 @@ import {ScrollView, StyleSheet} from 'react-native'
 import edwardirene from '../assets/images/edward-irene.png'
 import * as queries from '../src/graphql/queries';
 import {API, graphqlOperation, Auth} from 'aws-amplify';
-import {ImageBackground, Title, Caption, View, Overlay, TouchableOpacity} from "@shoutem/ui"
+import {ImageBackground, Title, Caption, View, Overlay, TouchableOpacity, Heading, Subtitle} from "@shoutem/ui"
 
 
 const getClasses = async () => {
@@ -33,13 +33,13 @@ const getClasses = async () => {
 
                             >
                                 <Overlay styleName="fill-parent image-overlay">
-                                    <Title styleName="md-gutter-bottom">{(danceClass.name || '').toUpperCase()}</Title>
-                                    <View styleName="horizontal md-gutter-top" virtual>
-                                        <Caption
+                                    <Heading >{(danceClass.name || '').toUpperCase()}</Heading>
+                                    <View styleName="horizontal" virtual>
+                                        <Title
                                             styleName="collapsible"
                                             numberOfLines={1}>
                                             {danceClass.instructors}
-                                        </Caption>
+                                        </Title>
                                     </View>
                                 </Overlay>
                             </ImageBackground>
@@ -125,5 +125,8 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+    },
+    classTitle: {
+        fontSize: 24
     }
 });

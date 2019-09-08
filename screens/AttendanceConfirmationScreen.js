@@ -14,8 +14,8 @@ export default function AttendanceConfirmationScreen(props) {
 
     return (
         <ScrollView>
-            <View style={{flex: 1, flexDirection: 'row',}}>
-                <DataTable style={{width: "49%"}}>
+            <View style={{flexDirection: 'row'}}>
+                <DataTable style={{flex: 1}} >
                     <DataTable.Header>
                         <DataTable.Title>
                             {boysList.length} Chicos
@@ -24,21 +24,21 @@ export default function AttendanceConfirmationScreen(props) {
                     {
                         boysList.map((confirmation) => {
                             return (
-                                <DataTable.Row key={confirmation.id}>
+                                <DataTable.Row key={confirmation.person_id}>
                                     <DataTable.Cell>{confirmation.name}</DataTable.Cell>
                                 </DataTable.Row>
                             );
                         })
                     }
                 </DataTable>
-                <DataTable>
+                <DataTable style={{flex: 1}}>
                     <DataTable.Header>
                         <DataTable.Title>{girlList.length} Chicas</DataTable.Title>
                     </DataTable.Header>
                     {
                         girlList.map((confirmation) => {
                             return (
-                                <DataTable.Row key={confirmation.id}>
+                                <DataTable.Row key={confirmation.person_id}>
                                     <DataTable.Cell>{confirmation.name}</DataTable.Cell>
                                 </DataTable.Row>
                             );

@@ -26,14 +26,18 @@ const HomeStack = createStackNavigator(
                 headerBackTitle: 'Atrás',
                 headerTitleStyle: {
                     fontFamily: "Rubik-Regular",
-                    marginLeft: -10
+                    marginLeft: -5
                 },
             }
         },
         AttendanceConfirmation: {
             screen : AttendanceConfirmationScreen,
             navigationOptions: {
-                headerBackTitle: 'Atrás'
+                headerBackTitle: 'Atrás',
+                headerTitleStyle: {
+                    fontFamily: "Rubik-Regular",
+                    marginLeft: -5
+                },
             }
         }
     },

@@ -4,7 +4,7 @@ import edwardirene from '../assets/images/edward-irene.png'
 import {
     Caption,
     ImageBackground, Overlay,
-    ScrollView, Title, TouchableOpacity, View, Text, Divider, Row
+    ScrollView, Title, TouchableOpacity, View, Text, Divider, Row, Icon
 } from "@shoutem/ui"
 import {DataTable, Badge, Button} from 'react-native-paper';
 
@@ -54,10 +54,10 @@ export default function AttendanceConfirmationScreen(props) {
             <Divider styleName="line"/>
             <Row>
                 <Text>¿Asistirás a clase?</Text>
-                <Button onPress=
-                            {() =>
-                    setAttendanceList(attendanceList.push(randomObject))}>Sí</Button>
-                <Button onPress={() =>console.log(attendanceList)}>No</Button>
+                <Icon name="checkbox-on"
+                      onPress=
+                          {() => setAttendanceList([...attendanceList, randomObject])}/>
+                <Icon name="close"/>
 
             </Row>
             <Divider styleName="line"/>

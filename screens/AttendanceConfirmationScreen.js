@@ -1,59 +1,81 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import edwardirene from '../assets/images/edward-irene.png'
 import {
     Caption,
     ImageBackground, Overlay,
-    ScrollView, Title, TouchableOpacity, View,
+    ScrollView, Title, TouchableOpacity, View, Text, Divider, Row
 } from "@shoutem/ui"
-import {DataTable, Badge} from 'react-native-paper';
+import {DataTable, Badge, Button} from 'react-native-paper';
 
 
 export default function AttendanceConfirmationScreen(props) {
-    let { navigate } = props.navigation;
-
+    let {navigate} = props.navigation;
+    let [attendanceList, setAttendanceList] = useState(mockAttendanceList);
+    let boysList = attendanceList.filter((b) => b.role === "BOY");
+    let girlList = attendanceList.filter((b) => b.role === "GIRL");
     return (
-        <ScrollView>
-            <View style={{flexDirection: 'row'}}>
-                <DataTable style={{flex: 1}} >
-                    <DataTable.Header>
-                        <DataTable.Title>
-                            {boysList.length} Chicos
-                        </DataTable.Title>
-                    </DataTable.Header>
-                    {
-                        boysList.map((confirmation) => {
-                            return (
-                                <DataTable.Row key={confirmation.person_id}>
-                                    <DataTable.Cell>{confirmation.name}</DataTable.Cell>
-                                </DataTable.Row>
-                            );
-                        })
-                    }
-                </DataTable>
-                <DataTable style={{flex: 1}}>
-                    <DataTable.Header>
-                        <DataTable.Title>{girlList.length} Chicas</DataTable.Title>
-                    </DataTable.Header>
-                    {
-                        girlList.map((confirmation) => {
-                            return (
-                                <DataTable.Row key={confirmation.person_id}>
-                                    <DataTable.Cell>{confirmation.name}</DataTable.Cell>
-                                </DataTable.Row>
-                            );
-                        })
-                    }
-                </DataTable>
-            </View>
-        </ScrollView>
+        <View>
+            <ScrollView>
+                <View style={{flexDirection: 'row'}}>
+                    <DataTable style={{flex: 1}}>
+                        <DataTable.Header>
+                            <DataTable.Title>
+                                {boysList.length} Chicos
+                            </DataTable.Title>
+                        </DataTable.Header>
+                        {
+                            boysList.map((confirmation) => {
+                                return (
+                                    <DataTable.Row key={confirmation.person_id}>
+                                        <DataTable.Cell>{confirmation.name}</DataTable.Cell>
+                                    </DataTable.Row>
+                                );
+                            })
+                        }
+                    </DataTable>
+                    <DataTable style={{flex: 1}}>
+                        <DataTable.Header>
+                            <DataTable.Title>{girlList.length} Chicas</DataTable.Title>
+                        </DataTable.Header>
+                        {
+                            girlList.map((confirmation) => {
+                                return (
+                                    <DataTable.Row key={confirmation.person_id}>
+                                        <DataTable.Cell>{confirmation.name}</DataTable.Cell>
+                                    </DataTable.Row>
+                                );
+                            })
+                        }
+                    </DataTable>
+                </View>
+            </ScrollView>
+
+            <Divider styleName="line"/>
+            <Row>
+                <Text>¿Asistirás a clase?</Text>
+                <Button onPress=
+                            {() =>
+                    setAttendanceList(attendanceList.push(randomObject))}>Sí</Button>
+                <Button onPress={() =>console.log(attendanceList)}>No</Button>
+
+            </Row>
+            <Divider styleName="line"/>
+        </View>
     )
 }
 AttendanceConfirmationScreen.navigationOptions = {
     title: 'Confirmación de asistencia',
 };
 
-const attendanceList =
+
+const randomObject = {
+    "person_id": "c957b91c-2e60-4903-8ba6-8a9ecf12a1f0",
+    "name": "Remus Richard",
+    "role": "BOY"
+};
+
+const mockAttendanceList =
     [
         {
             "person_id": "c857b91c-2e60-4903-8ba6-8a9ecf12a1f0",
@@ -92,6 +114,3 @@ const attendanceList =
         }
     ]
 
-const boysList = attendanceList.filter((b) => b.role === "BOY")
-
-const girlList = attendanceList.filter((b) => b.role === "GIRL")

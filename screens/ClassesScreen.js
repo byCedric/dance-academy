@@ -33,13 +33,14 @@ const getClasses = async () => {
 
                             >
                                 <Overlay styleName="fill-parent image-overlay">
-                                    <Heading >{(danceClass.name || '').toUpperCase()}</Heading>
-                                    <View styleName="horizontal" virtual>
+                                    <Heading>{(danceClass.name || '').toUpperCase()}</Heading>
+                                    <View styleName="vertical" virtual>
                                         <Title
                                             styleName="collapsible"
                                             numberOfLines={1}>
                                             {danceClass.instructors}
                                         </Title>
+                                        <Subtitle>{danceClass.dayOfWeek}  {danceClass.hourOfDay}</Subtitle>
                                     </View>
                                 </Overlay>
                             </ImageBackground>
@@ -55,27 +56,35 @@ ClassesScreen.navigationOptions = {
 
 export default ClassesScreen
 
-
 const classes =
-    [{
-        id: "1",
-        name: "Bachata Tres",
-        instructors: "Joaquín y Bea"
-    },
+    [
+        {
+            id: "1",
+            name: "Bachata Uno",
+            instructors: "Joaquín y Bea",
+            dayOfWeek: "LUNES",
+            hourOfDay : "21:00"
+        },
         {
             id: "2",
-            name: "Salsa cero",
-            instructors: "Edward e Irene"
+            name: "Salsa Uno",
+            instructors: "Edward e Irene",
+            dayOfWeek: "VIERNES",
+            hourOfDay : "21:00"
         },
         {
             id: "3",
-            name: "Kizomba uno",
-            instructors: "Joaquín y Bea"
+            name: "Salsa Línea 0 Av.",
+            instructors: "Gustavo y Diana",
+            dayOfWeek: "MARTES",
+            hourOfDay : "20:00"
         },
         {
             id: "4",
-            name: "Bachata cero",
-            instructors: "Edward e Irene"
+            name: "Salsa Uno",
+            instructors: "Joaquín y Pilar",
+            dayOfWeek: "VIERNES",
+            hourOfDay : "22:00"
         },
         {
             id: "5",

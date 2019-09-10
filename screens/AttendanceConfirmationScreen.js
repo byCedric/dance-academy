@@ -7,6 +7,17 @@ import {
     ScrollView, Title, TouchableOpacity, View, Text, Divider, Row, Icon
 } from "@shoutem/ui"
 import {DataTable, Badge, Button} from 'react-native-paper';
+import {Auth} from 'aws-amplify';
+
+const randomObject = async () => {
+    let user = await Auth.currentUserInfo();
+    return   {
+        "person_id": user.attributes.sub,
+        "name": "Remus Richard",
+        "role": "BOY"
+    };
+};
+
 
 
 export default function AttendanceConfirmationScreen(props) {
@@ -55,25 +66,40 @@ export default function AttendanceConfirmationScreen(props) {
             <Row>
                 <Text>¿Asistirás a clase?</Text>
                 <Icon name="checkbox-on"
-                      onPress=
-                          {() => setAttendanceList([...attendanceList, randomObject])}/>
-                <Icon name="close"/>
+                      onPress= {() => confirmAttendance()}/>
+                <Icon name="close"
+                onPress={() =>cancelAttendance()}/>
 
             </Row>
             <Divider styleName="line"/>
         </View>
-    )
+    );
+    async function confirmAttendance(){
+        let attendanceConfirmation= await randomObject();
+        console.log(JSON.stringify(attendanceConfirmation));
+        if((attendanceList.filter(confirmation => confirmation.person_id === attendanceConfirmation.person_id).length === 0)){
+            setAttendanceList([...attendanceList, attendanceConfirmation])
+        }
+    }
+    async function cancelAttendance(){
+        let attendanceConfirmation= await randomObject();
+        if((attendanceList.filter(confirmation => confirmation.person_id === attendanceConfirmation.person_id).length > 0)){
+            setAttendanceList(attendanceList.filter(function(value,index,arr){
+                return value.person_id !== attendanceConfirmation.person_id
+            }))
+        }
+    }
 }
+
+
+
+
 AttendanceConfirmationScreen.navigationOptions = {
     title: 'Confirmación de asistencia',
 };
 
 
-const randomObject = {
-    "person_id": "c957b91c-2e60-4903-8ba6-8a9ecf12a1f0",
-    "name": "Remus Richard",
-    "role": "BOY"
-};
+
 
 const mockAttendanceList =
     [

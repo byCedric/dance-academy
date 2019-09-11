@@ -31,20 +31,26 @@ const HomeStack = createStackNavigator(
             navigationOptions: {
                 headerBackTitle: 'Atrás',
                 headerTitleStyle: {
-                    fontFamily: "Rubik-Regular",
                     marginLeft: -5
                 },
             }
         },
         ClassChat: {
-            screen: ClassChatScreen
+            screen: ClassChatScreen,
+            navigationOptions: {
+                title: 'Chat',
+                headerBackTitle: 'Atrás',
+                headerTitleStyle: {
+                    marginLeft: -5
+                },
+            }
+
         },
         AttendanceConfirmation: {
             screen: AttendanceConfirmationScreen,
             navigationOptions: {
                 headerBackTitle: 'Atrás',
                 headerTitleStyle: {
-                    fontFamily: "Rubik-Regular",
                     marginLeft: -5
                 },
             }

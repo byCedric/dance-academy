@@ -1,13 +1,9 @@
-import * as WebBrowser from 'expo-web-browser';
+
 import React from 'react';
-import { Input, Button } from 'react-native-elements';
 import {
-  Image,
   Platform,
-  ScrollView,
   StyleSheet,
   Text,
-  TouchableOpacity,
   View,
 } from 'react-native';
 import { Auth } from 'aws-amplify';

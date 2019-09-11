@@ -2,9 +2,7 @@ import React, {useState} from 'react';
 
 import edwardirene from '../assets/images/edward-irene.png'
 import {
-    Caption,
-    ImageBackground, Overlay,
-    ScrollView, Title, TouchableOpacity, View, Text, Divider, Row, Icon
+    ScrollView, View, Text, Divider, Row, Icon
 } from "@shoutem/ui"
 import {DataTable, Badge, Button} from 'react-native-paper';
 import {Auth} from 'aws-amplify';

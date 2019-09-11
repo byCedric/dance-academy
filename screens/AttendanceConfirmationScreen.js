@@ -76,7 +76,6 @@ export default function AttendanceConfirmationScreen(props) {
     );
     async function confirmAttendance(){
         let attendanceConfirmation= await randomObject();
-        console.log(JSON.stringify(attendanceConfirmation));
         if((attendanceList.filter(confirmation => confirmation.person_id === attendanceConfirmation.person_id).length === 0)){
             setAttendanceList([...attendanceList, attendanceConfirmation])
         }

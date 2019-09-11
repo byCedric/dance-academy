@@ -8,6 +8,7 @@ import NotificationsScreen from '../screens/NotificationsScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import ClassDetailScreen from "../screens/ClassDetailScreen";
 import AttendanceConfirmationScreen from "../screens/AttendanceConfirmationScreen";
+import ClassChatScreen from "../screens/ClassChatScreen";
 
 const config = Platform.select({
     web: {headerMode: 'screen'},
@@ -19,7 +20,12 @@ const config = Platform.select({
 
 const HomeStack = createStackNavigator(
     {
-        Classes: ClassesScreen,
+        Classes: {
+            screen: ClassesScreen,
+            navigationOptions: {
+
+            }
+        },
         ClassDetail: {
             screen: ClassDetailScreen,
             navigationOptions: {
@@ -30,8 +36,19 @@ const HomeStack = createStackNavigator(
                 },
             }
         },
+        ClassChat: {
+            screen: ClassChatScreen,
+            navigationOptions: {
+                title: 'Chat',
+                headerBackTitle: 'Atrás',
+                headerTitleStyle: {
+                    fontFamily: "Rubik-Regular",
+                    marginLeft: -5
+                },
+            }
+        },
         AttendanceConfirmation: {
-            screen : AttendanceConfirmationScreen,
+            screen: AttendanceConfirmationScreen,
             navigationOptions: {
                 headerBackTitle: 'Atrás',
                 headerTitleStyle: {
@@ -44,19 +61,27 @@ const HomeStack = createStackNavigator(
     config
 );
 
-HomeStack.navigationOptions = {
-    tabBarLabel: 'Clases',
-    tabBarIcon: ({focused}) => (
-        <TabBarIcon
-            focused={focused}
-            name={
-                Platform.OS === 'ios'
-                    ? `ios-calendar${focused ? '' : '-outline'}`
-                    : 'md-calendar'
-            }
-        />
-    ),
+HomeStack.navigationOptions = ({navigation}) => {
+    let {routeName} = navigation.state.routes[navigation.state.index];
+    let navigationOptions = {
+        tabBarLabel : 'Clases',
+        tabBarIcon: ({focused}) => (
+            <TabBarIcon
+                focused={focused}
+                name={
+                    Platform.OS === 'ios'
+                        ? `ios-calendar${focused ? '' : '-outline'}`
+                        : 'md-calendar'
+                }
+            />
+        )
+    };
+    if (routeName === 'ClassChat') {
+        navigationOptions.tabBarVisible = false;
+    }
+    return navigationOptions
 };
+
 
 HomeStack.path = '';
 

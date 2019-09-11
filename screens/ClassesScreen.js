@@ -15,7 +15,6 @@ const getClasses = async () => {
     },
     ClassesScreen = (props) => {
         const {navigate} = props.navigation;
-        getClasses().then(r => console.log("rendering " + JSON.stringify(r)));
         return <ScrollView>
             {
                 classes.map((danceClass) => {
@@ -40,7 +39,7 @@ const getClasses = async () => {
                                             numberOfLines={1}>
                                             {danceClass.instructors}
                                         </Title>
-                                        <Subtitle>{danceClass.dayOfWeek}  {danceClass.hourOfDay}</Subtitle>
+                                        <Subtitle>{danceClass.dayOfWeek} {danceClass.hourOfDay}</Subtitle>
                                     </View>
                                 </Overlay>
                             </ImageBackground>
@@ -63,28 +62,28 @@ const classes =
             name: "Bachata Uno",
             instructors: "Joaquín y Bea",
             dayOfWeek: "LUNES",
-            hourOfDay : "21:00"
+            hourOfDay: "21:00"
         },
         {
             id: "2",
             name: "Salsa Uno",
             instructors: "Edward e Irene",
             dayOfWeek: "VIERNES",
-            hourOfDay : "21:00"
+            hourOfDay: "21:00"
         },
         {
             id: "3",
             name: "Salsa Línea 0 Av.",
             instructors: "Gustavo y Diana",
             dayOfWeek: "MARTES",
-            hourOfDay : "20:00"
+            hourOfDay: "20:00"
         },
         {
             id: "4",
             name: "Salsa Uno",
             instructors: "Joaquín y Pilar",
             dayOfWeek: "VIERNES",
-            hourOfDay : "22:00"
+            hourOfDay: "22:00"
         },
         {
             id: "5",

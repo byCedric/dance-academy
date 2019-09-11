@@ -38,6 +38,19 @@ export default function ClassDetailScreen(props) {
                     <Icon styleName="disclosure" name="right-arrow"/>
                 </Row>
             </TouchableOpacity>
+            <TouchableOpacity
+                onPress={() => navigate('ClassChat')}
+            >
+                <Row>
+                    <Icon name="activity" />
+                    <View styleName="vertical">
+                        <Text style={styles.text}>
+                            Chat
+                        </Text>
+                    </View>
+                    <Icon styleName="disclosure" name="right-arrow"/>
+                </Row>
+            </TouchableOpacity>
 
             <TouchableOpacity
                 onPress={NotImplementedYet()}

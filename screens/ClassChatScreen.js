@@ -1,36 +1,64 @@
 import React, {useState} from 'react';
 import {GiftedChat} from 'react-native-gifted-chat'
 import {KeyboardAvoidingView, View, Platform, ScrollView} from 'react-native';
-import {Dimensions, StatusBar,StyleSheet} from 'react-native';
+import {Dimensions, StatusBar, StyleSheet} from 'react-native';
 
 
-ClassChatScreen.navigationOptions = screenProps => ({
-    Title: "Chat"
-});
+export default class ClassChatScreen extends React.Component {
+    static navigationOptions = ({navigation}) => ({
+        title: 'Chat',
+    });
 
+    state = {
+        messages: [],
+    };
 
-export default function ClassChatScreen(props) {
-    let [messages, setMessages] = useState(mockMessages.sort((a, b) => a.createdAt < b.createdAt));
-    return (
-        <KeyboardAvoidingView  behavior="padding" style={styles.containerContent}>
-            <GiftedChat
-                messages={messages}
-                onSend={newMessages => onSend(newMessages)}
-                user={{
+    componentWillMount() {
+        this.setState({
+            messages: [
+                {
                     _id: 1,
-                }
-                }
-                forceGetKeyboardHeight
-            />
-        </KeyboardAvoidingView>
-    );
-
-    function onSend(newMessages = []) {
-        setMessages(([...messages, ...newMessages].sort((a, b) => a.createdAt < b.createdAt)))
+                    text: 'Hello developer',
+                    createdAt: new Date(),
+                    user: {
+                        _id: 2,
+                        name: 'React Native',
+                        avatar: 'https://placeimg.com/140/140/any',
+                    },
+                },
+            ],
+        })
     }
 
+    onSend(messages = []) {
+        this.setState(previousState => ({
+            messages: GiftedChat.append(previousState.messages, messages),
+        }))
+    }
 
+    render() {
+        return (
+            <KeyboardAvoidingView style={styles.container} behavior={"padding"}>
+                <GiftedChat
+                    messages={this.state.messages}
+                    onSend={messages => this.onSend(messages)}
+                    user={{
+                        _id: 1,
+                    }}
+                />
+            </KeyboardAvoidingView>
+        )
+    }
 }
+
+const styles = StyleSheet.create({
+    container : {
+        flex : 1,
+        flexGrow: 1,
+        justifyContent: 'center',
+        height: Dimensions.get("window").height - StatusBar.currentHeight
+    }
+});
 const mockMessages =
     [
         {
@@ -67,9 +95,3 @@ const mockMessages =
             // Any additional custom parameters are passed through
         }
     ];
-
-const styles = StyleSheet.create({
-    containerContent: {
-        flex: 2,
-        backgroundColor: 'white',
-    }});

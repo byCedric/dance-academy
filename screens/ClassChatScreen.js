@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {GiftedChat} from 'react-native-gifted-chat'
 import {KeyboardAvoidingView, StatusBar, StyleSheet, Platform, View} from 'react-native';
 import {Header} from 'react-navigation';
+import {Auth} from "aws-amplify";
 
 export default function ClassChatScreen(props) {
     let [messages, setMessages] = useState([]);
@@ -26,6 +27,11 @@ export default function ClassChatScreen(props) {
 
 
 }
+
+
+const getUserInfo = async () => {
+    await Auth.currentUserInfo();
+};
 
 const styles = StyleSheet.create({
     container: {

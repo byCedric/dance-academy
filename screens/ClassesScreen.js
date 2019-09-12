@@ -1,19 +1,17 @@
 import React from "react";
 import {ScrollView, StyleSheet} from 'react-native'
-import edwardirene from '../assets/images/edward-irene.png'
+import edwardirene from '../assets/images/gustavo-diana.png'
 import * as queries from '../src/graphql/queries';
 import {API, graphqlOperation, Auth} from 'aws-amplify';
-import {ImageBackground, Title, Caption, View, Overlay, TouchableOpacity, Heading, Subtitle} from "@shoutem/ui"
+import {ImageBackground, Title, View, Overlay, TouchableOpacity, Heading, Subtitle} from "@shoutem/ui"
 
 
 const getClasses = async () => {
         await Auth.currentUserInfo()
-            .then(user => console.log(API.graphql(graphqlOperation(queries.getUsers, {id: user.attributes.sub}))))
-            .then(success => console.log(success));
-
-
+            .then(user => API.graphql(graphqlOperation(queries.getUsers, {id: user.attributes.sub})))
     },
     ClassesScreen = (props) => {
+    getClasses();
         const {navigate} = props.navigation;
         return <ScrollView>
             {

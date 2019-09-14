@@ -11,6 +11,7 @@ import {
 
 import edwardirene from '../assets/images/edward-irene.png'
 import {NotImplementedYet} from "../components/NotImplementedYet";
+import {images} from "../constants/Images";
 
 
 ClassDetailScreen.navigationOptions = screenProps => ({
@@ -24,7 +25,7 @@ export default function ClassDetailScreen(props) {
     return (
 
         <View>
-            <Image styleName="large-banner" source={edwardirene} />
+            <Image styleName="large-banner" source={images[danceClass.picture].uri} />
             <TouchableOpacity
                 onPress={() => navigate('AttendanceConfirmation', danceClass.id)}
             >

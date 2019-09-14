@@ -4,47 +4,60 @@
   subscription: Subscription
 }
 
-type Mutation {
-  createUsers(input: CreateUsersInput!): Users
-  deleteUsers(input: DeleteUsersInput!): Users
-  updateUsers(input: UpdateUsersInput!): Users
+type Class {
+  dayOfWeek: String
+  hourOfDay: String
+  id: String!
+  instructors: String
+  name: String
+  picture: String
+  type: String!
 }
 
-type Payment {
-  class_id: String!
-  from: String
-  name: String
-  to: String
+type Mutation {
+  createUser(input: CreateUserInput!): User
+  deleteUser(input: DeleteUserInput!): User
+  updateUser(input: UpdateUserInput!): User
 }
 
 type Query {
-  getUsers(id: String!): Users
-  listUsers(filter: TableUsersFilterInput, limit: Int, nextToken: String): UsersConnection
+  getClass(id: String!, type: String!): Class
+  getUser(id: String!, type: String!): User
+  getUserssss(id: String!): String
+  listUsers(filter: TableUserFilterInput, limit: Int, nextToken: String): UserConnection
 }
 
 type Subscription {
-  onCreateUsers(id: String): Users @aws_subscribe(mutations : ["createUsers"])
-  onDeleteUsers(id: String): Users @aws_subscribe(mutations : ["deleteUsers"])
-  onUpdateUsers(id: String): Users @aws_subscribe(mutations : ["updateUsers"])
+  onCreateUser(id: String, name: String, phone_number: String, role: String, type: String): User @aws_subscribe(mutations : ["createUser"])
+  onDeleteUser(id: String, name: String, phone_number: String, role: String, type: String): User @aws_subscribe(mutations : ["deleteUser"])
+  onUpdateUser(id: String, name: String, phone_number: String, role: String, type: String): User @aws_subscribe(mutations : ["updateUser"])
 }
 
-type Users {
+type User {
+  classes: [Class]
   id: String!
   name: String
-  payments: [Payment]
+  phone_number: String
+  role: String
+  type: String!
 }
 
-type UsersConnection {
-  items: [Users]
+type UserConnection {
+  items: [User]
   nextToken: String
 }
 
-input CreateUsersInput {
+input CreateUserInput {
   id: String!
+  name: String
+  phone_number: String
+  role: String
+  type: String!
 }
 
-input DeleteUsersInput {
+input DeleteUserInput {
   id: String!
+  type: String!
 }
 
 input TableBooleanFilterInput {
@@ -102,10 +115,18 @@ input TableStringFilterInput {
   notContains: String
 }
 
-input TableUsersFilterInput {
+input TableUserFilterInput {
   id: TableStringFilterInput
+  name: TableStringFilterInput
+  phone_number: TableStringFilterInput
+  role: TableStringFilterInput
+  type: TableStringFilterInput
 }
 
-input UpdateUsersInput {
+input UpdateUserInput {
   id: String!
+  name: String
+  phone_number: String
+  role: String
+  type: String!
 }

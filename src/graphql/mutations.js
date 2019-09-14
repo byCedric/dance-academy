@@ -1,42 +1,60 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createUsers = `mutation CreateUsers($input: CreateUsersInput!) {
-  createUsers(input: $input) {
+export const createUser = `mutation CreateUser($input: CreateUserInput!) {
+  createUser(input: $input) {
     id
-    name
-    payments {
-      class_id
-      from
+    type
+    classes {
+      id
+      type
+      dayOfWeek
+      hourOfDay
       name
-      to
+      picture
+      instructors
     }
+    name
+    phone_number
+    role
   }
 }
 `;
-export const deleteUsers = `mutation DeleteUsers($input: DeleteUsersInput!) {
-  deleteUsers(input: $input) {
+export const updateUser = `mutation UpdateUser($input: UpdateUserInput!) {
+  updateUser(input: $input) {
     id
-    name
-    payments {
-      class_id
-      from
+    type
+    classes {
+      id
+      type
+      dayOfWeek
+      hourOfDay
       name
-      to
+      picture
+      instructors
     }
+    name
+    phone_number
+    role
   }
 }
 `;
-export const updateUsers = `mutation UpdateUsers($input: UpdateUsersInput!) {
-  updateUsers(input: $input) {
+export const deleteUser = `mutation DeleteUser($input: DeleteUserInput!) {
+  deleteUser(input: $input) {
     id
-    name
-    payments {
-      class_id
-      from
+    type
+    classes {
+      id
+      type
+      dayOfWeek
+      hourOfDay
       name
-      to
+      picture
+      instructors
     }
+    name
+    phone_number
+    role
   }
 }
 `;

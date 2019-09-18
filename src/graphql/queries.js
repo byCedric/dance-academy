@@ -1,10 +1,6 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getUserssss = `query GetUserssss($id: String!) {
-  getUserssss(id: $id)
-}
-`;
 export const getUser = `query GetUser($type: String!, $id: String!) {
   getUser(type: $type, id: $id) {
     id
@@ -17,6 +13,11 @@ export const getUser = `query GetUser($type: String!, $id: String!) {
       name
       picture
       instructors
+      chat {
+        _id
+        createdAt
+        text
+      }
     }
     name
     phone_number
@@ -33,6 +34,15 @@ export const getClass = `query GetClass($type: String!, $id: String!) {
     name
     picture
     instructors
+    chat {
+      _id
+      createdAt
+      text
+      Sender {
+        _id
+        name
+      }
+    }
   }
 }
 `;

@@ -1,6 +1,18 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const createChatMessage = `mutation CreateChatMessage($input: ChatMessageInput!) {
+  createChatMessage(input: $input) {
+    _id
+    createdAt
+    text
+    Sender {
+      _id
+      name
+    }
+  }
+}
+`;
 export const createUser = `mutation CreateUser($input: CreateUserInput!) {
   createUser(input: $input) {
     id
@@ -13,6 +25,11 @@ export const createUser = `mutation CreateUser($input: CreateUserInput!) {
       name
       picture
       instructors
+      chat {
+        _id
+        createdAt
+        text
+      }
     }
     name
     phone_number
@@ -32,6 +49,11 @@ export const updateUser = `mutation UpdateUser($input: UpdateUserInput!) {
       name
       picture
       instructors
+      chat {
+        _id
+        createdAt
+        text
+      }
     }
     name
     phone_number
@@ -51,6 +73,11 @@ export const deleteUser = `mutation DeleteUser($input: DeleteUserInput!) {
       name
       picture
       instructors
+      chat {
+        _id
+        createdAt
+        text
+      }
     }
     name
     phone_number

@@ -1,104 +1,58 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 import edwardirene from '../assets/images/edward-irene.png'
 import {
-    ScrollView, View, Text, Divider, Row, Icon
+    Caption,
+    ImageBackground, Overlay,
+    ScrollView, Title, TouchableOpacity, View,
 } from "@shoutem/ui"
-import {DataTable, Badge, Button} from 'react-native-paper';
-import {Auth} from 'aws-amplify';
-
-const randomObject = async () => {
-    let user = await Auth.currentUserInfo();
-    return   {
-        "person_id": user.attributes.sub,
-        "name": "Remus Richard",
-        "role": "BOY"
-    };
-};
-
+import { DataTable, Badge } from 'react-native-paper';
 
 
 export default function AttendanceConfirmationScreen(props) {
-    let {navigate} = props.navigation;
-    let [attendanceList, setAttendanceList] = useState(mockAttendanceList);
-    let boysList = attendanceList.filter((b) => b.role === "BOY");
-    let girlList = attendanceList.filter((b) => b.role === "GIRL");
+    let { navigate } = props.navigation;
+
     return (
-        <View>
-            <ScrollView>
-                <View style={{flexDirection: 'row'}}>
-                    <DataTable style={{flex: 1}}>
-                        <DataTable.Header>
-                            <DataTable.Title>
-                                {boysList.length} Chicos
-                            </DataTable.Title>
-                        </DataTable.Header>
-                        {
-                            boysList.map((confirmation) => {
-                                return (
-                                    <DataTable.Row key={confirmation.person_id}>
-                                        <DataTable.Cell>{confirmation.name}</DataTable.Cell>
-                                    </DataTable.Row>
-                                );
-                            })
-                        }
-                    </DataTable>
-                    <DataTable style={{flex: 1}}>
-                        <DataTable.Header>
-                            <DataTable.Title>{girlList.length} Chicas</DataTable.Title>
-                        </DataTable.Header>
-                        {
-                            girlList.map((confirmation) => {
-                                return (
-                                    <DataTable.Row key={confirmation.person_id}>
-                                        <DataTable.Cell>{confirmation.name}</DataTable.Cell>
-                                    </DataTable.Row>
-                                );
-                            })
-                        }
-                    </DataTable>
-                </View>
-            </ScrollView>
-
-            <Divider styleName="line"/>
-            <Row>
-                <Text>¿Asistirás a clase?</Text>
-                <Icon name="checkbox-on"
-                      onPress= {() => confirmAttendance()}/>
-                <Icon name="close"
-                onPress={() =>cancelAttendance()}/>
-
-            </Row>
-            <Divider styleName="line"/>
-        </View>
-    );
-    async function confirmAttendance(){
-        let attendanceConfirmation= await randomObject();
-        if((attendanceList.filter(confirmation => confirmation.person_id === attendanceConfirmation.person_id).length === 0)){
-            setAttendanceList([...attendanceList, attendanceConfirmation])
-        }
-    }
-    async function cancelAttendance(){
-        let attendanceConfirmation= await randomObject();
-        if((attendanceList.filter(confirmation => confirmation.person_id === attendanceConfirmation.person_id).length > 0)){
-            setAttendanceList(attendanceList.filter(function(value,index,arr){
-                return value.person_id !== attendanceConfirmation.person_id
-            }))
-        }
-    }
+        <ScrollView>
+            <View style={{ flex: 1, flexDirection: 'row', }}>
+                <DataTable style={{ width: "49%" }}>
+                    <DataTable.Header>
+                        <DataTable.Title>
+                            {boysList.length} Chicos
+                </DataTable.Title>
+                    </DataTable.Header>
+                    {
+                        boysList.map((confirmation) => {
+                            return (
+                                <DataTable.Row key={confirmation.id}>
+                                    <DataTable.Cell>{confirmation.name}</DataTable.Cell>
+                                </DataTable.Row>
+                            );
+                        })
+                    }
+                </DataTable>
+                <DataTable >
+                    <DataTable.Header>
+                        <DataTable.Title>{girlList.length} Chicas</DataTable.Title>
+                    </DataTable.Header>
+                    {
+                        girlList.map((confirmation) => {
+                            return (
+                                <DataTable.Row key={confirmation.id}>
+                                    <DataTable.Cell>{confirmation.name}</DataTable.Cell>
+                                </DataTable.Row>
+                            );
+                        })
+                    }
+                </DataTable>
+            </View>
+        </ScrollView>
+    )
 }
 
 
 
-
-AttendanceConfirmationScreen.navigationOptions = {
-    title: 'Confirmación de asistencia',
-};
-
-
-
-
-const mockAttendanceList =
+const attendanceList =
     [
         {
             "person_id": "c857b91c-2e60-4903-8ba6-8a9ecf12a1f0",
@@ -137,3 +91,6 @@ const mockAttendanceList =
         }
     ]
 
+const boysList = attendanceList.filter((b) => b.role === "BOY")
+
+const girlList = attendanceList.filter((b) => b.role === "GIRL")

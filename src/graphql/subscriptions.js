@@ -25,6 +25,11 @@ export const onCreateUser = `subscription OnCreateUser(
       name
       picture
       instructors
+      chat {
+        _id
+        createdAt
+        text
+      }
     }
     name
     phone_number
@@ -56,6 +61,11 @@ export const onUpdateUser = `subscription OnUpdateUser(
       name
       picture
       instructors
+      chat {
+        _id
+        createdAt
+        text
+      }
     }
     name
     phone_number
@@ -87,6 +97,11 @@ export const onDeleteUser = `subscription OnDeleteUser(
       name
       picture
       instructors
+      chat {
+        _id
+        createdAt
+        text
+      }
     }
     name
     phone_number

@@ -1,8 +1,20 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createChatMessage = `mutation CreateChatMessage($input: ChatMessageInput!) {
-  createChatMessage(input: $input) {
+export const createChatMessage = `mutation CreateChatMessage(
+  $class_id: String!
+  $_id: String
+  $createdAt: String
+  $text: String
+  $sender: MessageSenderInput
+) {
+  createChatMessage(
+    class_id: $class_id
+    _id: $_id
+    createdAt: $createdAt
+    text: $text
+    sender: $sender
+  ) {
     _id
     createdAt
     text
@@ -10,6 +22,15 @@ export const createChatMessage = `mutation CreateChatMessage($input: ChatMessage
       _id
       name
     }
+  }
+}
+`;
+export const createAttendance = `mutation CreateAttendance($input: UserAttendanceInput!) {
+  createAttendance(input: $input) {
+    id
+    class_id
+    name
+    role
   }
 }
 `;

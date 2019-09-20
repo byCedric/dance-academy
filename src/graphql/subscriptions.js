@@ -1,110 +1,23 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateUser = `subscription OnCreateUser(
-  $id: String
-  $type: String
-  $name: String
-  $phone_number: String
-  $role: String
-) {
-  onCreateUser(
-    id: $id
-    type: $type
-    name: $name
-    phone_number: $phone_number
-    role: $role
-  ) {
-    id
-    type
-    classes {
-      id
-      type
-      dayOfWeek
-      hourOfDay
+export const onMessageCreated = `subscription OnMessageCreated($id: String) {
+  onMessageCreated(id: $id) {
+    _id
+    createdAt
+    text
+    Sender {
+      _id
       name
-      picture
-      instructors
-      chat {
-        _id
-        createdAt
-        text
-      }
     }
-    name
-    phone_number
-    role
   }
 }
 `;
-export const onUpdateUser = `subscription OnUpdateUser(
-  $id: String
-  $type: String
-  $name: String
-  $phone_number: String
-  $role: String
-) {
-  onUpdateUser(
-    id: $id
-    type: $type
-    name: $name
-    phone_number: $phone_number
-    role: $role
-  ) {
+export const onAttendanceCreated = `subscription OnAttendanceCreated($class_id: String) {
+  onAttendanceCreated(class_id: $class_id) {
     id
-    type
-    classes {
-      id
-      type
-      dayOfWeek
-      hourOfDay
-      name
-      picture
-      instructors
-      chat {
-        _id
-        createdAt
-        text
-      }
-    }
+    class_id
     name
-    phone_number
-    role
-  }
-}
-`;
-export const onDeleteUser = `subscription OnDeleteUser(
-  $id: String
-  $type: String
-  $name: String
-  $phone_number: String
-  $role: String
-) {
-  onDeleteUser(
-    id: $id
-    type: $type
-    name: $name
-    phone_number: $phone_number
-    role: $role
-  ) {
-    id
-    type
-    classes {
-      id
-      type
-      dayOfWeek
-      hourOfDay
-      name
-      picture
-      instructors
-      chat {
-        _id
-        createdAt
-        text
-      }
-    }
-    name
-    phone_number
     role
   }
 }

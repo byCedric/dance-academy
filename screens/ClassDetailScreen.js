@@ -9,7 +9,6 @@ import {
     TouchableOpacity
 } from "@shoutem/ui"
 
-import edwardirene from '../assets/images/edward-irene.png'
 import {NotImplementedYet} from "../components/NotImplementedYet";
 import {images} from "../constants/Images";
 
@@ -22,12 +21,12 @@ export default function ClassDetailScreen(props) {
 
     const {navigate} = props.navigation;
     const danceClass = props.navigation.getParam('class');
+    const userInfo = props.navigation.getParam('userInfo');
     return (
-
-        <View>
+            <View>
             <Image styleName="large-banner" source={images[danceClass.picture].uri} />
             <TouchableOpacity
-                onPress={() => navigate('AttendanceConfirmation', danceClass.id)}
+                onPress={() => navigate('AttendanceConfirmation', {"class_id" : danceClass.id, "userInfo" : userInfo})}
             >
                 <Row>
                     <Icon name="add-friend" />
@@ -40,7 +39,7 @@ export default function ClassDetailScreen(props) {
                 </Row>
             </TouchableOpacity>
             <TouchableOpacity
-                onPress={() => navigate('ClassChat')}
+                onPress={() => navigate('ClassChat', {"class": danceClass})}
             >
                 <Row>
                     <Icon name="activity" />

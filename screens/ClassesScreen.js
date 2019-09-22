@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {ScrollView, StyleSheet} from 'react-native'
-import edwardirene from '../assets/images/gustavo-diana.png'
+import {ActivityIndicator, ScrollView, StyleSheet} from 'react-native'
 import * as queries from '../src/graphql/queries';
 import {API, graphqlOperation, Auth} from 'aws-amplify';
 import {ImageBackground, Title, View, Overlay, TouchableOpacity, Heading, Subtitle} from "@shoutem/ui"
@@ -10,6 +9,9 @@ import {images} from "../constants/Images";
 
 export default function ClassesScreen(props) {
     let [danceClasses, setDanceClasses] = useState([]);
+    let [loading, setLoading] = useState(true);
+
+    let [userInfo, setUserInfo] = useState({});
     useEffect(() => {
         async function fetchClasses() {
             let loggedUser = await Auth.currentUserInfo();
@@ -17,7 +19,14 @@ export default function ClassesScreen(props) {
                 type: "USER",
                 id: loggedUser.attributes.sub
             }));
-            console.log(userInfo.data.getUser.classes);
+            setUserInfo(
+                {
+                    "id" : loggedUser.attributes.sub,
+                    "role" : userInfo.data.getUser.role,
+                    "name" : userInfo.data.getUser.name
+                }
+            );
+            setLoading(false);
             setDanceClasses([...userInfo.data.getUser.classes])
         }
         fetchClasses();
@@ -25,12 +34,19 @@ export default function ClassesScreen(props) {
 
     const {navigate} = props.navigation;
     return <ScrollView>
+        {loading && (
+            <ActivityIndicator
+                style={{ height: 80 }}
+                color="#FF0000"
+                size="large"
+            />
+        )}
         {
             danceClasses.map((danceClass) => {
                 return (
                     <TouchableOpacity
                         key={danceClass.id}
-                        onPress={() => navigate('ClassDetail', {"class": danceClass})}
+                        onPress={() => navigate('ClassDetail', {"class": danceClass, "userInfo" : userInfo})}
                     >
                         <ImageBackground
                             styleName="large-banner"

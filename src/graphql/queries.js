@@ -18,6 +18,12 @@ export const getUser = `query GetUser($type: String!, $id: String!) {
         createdAt
         text
       }
+      attendance {
+        id
+        class_id
+        name
+        role
+      }
     }
     name
     phone_number
@@ -42,6 +48,12 @@ export const getClass = `query GetClass($class_id: String!) {
         _id
         name
       }
+    }
+    attendance {
+      id
+      class_id
+      name
+      role
     }
   }
 }

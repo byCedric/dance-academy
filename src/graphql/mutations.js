@@ -51,6 +51,12 @@ export const createUser = `mutation CreateUser($input: CreateUserInput!) {
         createdAt
         text
       }
+      attendance {
+        id
+        class_id
+        name
+        role
+      }
     }
     name
     phone_number
@@ -75,6 +81,12 @@ export const updateUser = `mutation UpdateUser($input: UpdateUserInput!) {
         createdAt
         text
       }
+      attendance {
+        id
+        class_id
+        name
+        role
+      }
     }
     name
     phone_number
@@ -98,6 +110,12 @@ export const deleteUser = `mutation DeleteUser($input: DeleteUserInput!) {
         _id
         createdAt
         text
+      }
+      attendance {
+        id
+        class_id
+        name
+        role
       }
     }
     name

@@ -25,8 +25,8 @@ export const getUser = `query GetUser($type: String!, $id: String!) {
   }
 }
 `;
-export const getClass = `query GetClass($type: String!, $id: String!) {
-  getClass(type: $type, id: $id) {
+export const getClass = `query GetClass($class_id: String!) {
+  getClass(class_id: $class_id) {
     id
     type
     dayOfWeek

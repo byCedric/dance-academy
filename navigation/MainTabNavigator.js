@@ -9,6 +9,7 @@ import ProfileScreen from '../screens/ProfileScreen';
 import ClassDetailScreen from "../screens/ClassDetailScreen";
 import AttendanceConfirmationScreen from "../screens/AttendanceConfirmationScreen";
 import ClassChatScreen from "../screens/ClassChatScreen";
+import ClassVideosScreen from "../screens/ClassVideosScreen";
 
 const config = Platform.select({
     web: {headerMode: 'screen'},
@@ -54,7 +55,16 @@ const HomeStack = createStackNavigator(
                     marginLeft: -5
                 },
             }
-        }
+        },
+        ClassVideos: {
+            screen: ClassVideosScreen,
+            navigationOptions: {
+                headerBackTitle: 'Atrás',
+                headerTitleStyle: {
+                    marginLeft: -5
+                },
+            }
+        },
     },
     config
 );

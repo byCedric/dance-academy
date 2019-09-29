@@ -53,7 +53,7 @@ export default function ClassDetailScreen(props) {
             </TouchableOpacity>
 
             <TouchableOpacity
-                onPress={NotImplementedYet()}
+                onPress={() => navigate('ClassVideos', {"class": danceClass})}
             >
                 <Row>
                     <Icon name="music-video"/>

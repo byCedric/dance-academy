@@ -13,7 +13,7 @@ jobs:
         with:
           node-version: 12.x
       - run: npm ci
-      - uses: bycedric/expo-cli-fix-inotify:latest
+      - uses: docker://bycedric/expo-cli-fix-inotify:latest
         with:
           args: publish --release-channel staging
         env:

@@ -1,8 +1,8 @@
 {
   "expo": {
     "name": "Luna Salcedo",
-    "slug": "dance-academy",
-    "privacy": "public",
+    "slug": "expo-cli-inotify-issue",
+    "privacy": "unlisted",
     "sdkVersion": "34.0.0",
     "platforms": [
       "ios",

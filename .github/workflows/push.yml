@@ -15,7 +15,7 @@ jobs:
       - run: npm ci
       - uses: docker://bycedric/expo-cli-fix-inotify:latest
         with:
-          args: publish --release-channel staging
+          args: publish
         env:
           EXPO_CLI_USERNAME: ${{ secrets.EXPO_CLI_USERNAME }}
           EXPO_CLI_PASSWORD: ${{ secrets.EXPO_CLI_PASSWORD }}

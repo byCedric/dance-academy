@@ -28,7 +28,7 @@ jobs:
         with:
           node-version: 12.x
       - run: npm ci
-      - uses: docker://bycedric/expo-cli-fix-inotify:latest
+      - uses: docker://bycedric/expo-cli-fix-inotify:debug
         with:
           args: publish
         env:

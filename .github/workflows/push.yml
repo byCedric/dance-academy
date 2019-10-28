@@ -6,7 +6,10 @@ on:
 jobs:
   publish:
     name: Install and publish
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macOS-latest, windows-latest]
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
